@@ -7,7 +7,7 @@ import { authService } from "../../services/auth"
 
 const Signup = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    username: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -38,14 +38,14 @@ const Signup = () => {
 
     try {
       const response = await authService.signup({
-        full_name: formData.name,
+        username: formData.username, // ✅ match backend
         email: formData.email,
         password: formData.password,
       })
       login(response.user, response.token)
       navigate("/")
     } catch (err) {
-      setError(err.response?.data?.message || "Signup failed")
+      setError(err.response?.data?.error || "Signup failed")
     } finally {
       setLoading(false)
     }
@@ -60,12 +60,12 @@ const Signup = () => {
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="name">Full Name</label>
+            <label htmlFor="username">Username</label>
             <input
               type="text"
-              id="name"
-              name="name"
-              value={formData.name}
+              id="username"
+              name="username"
+              value={formData.username}
               onChange={handleChange}
               required
               disabled={loading}
