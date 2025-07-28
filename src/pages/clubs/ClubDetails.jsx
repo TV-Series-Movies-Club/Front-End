@@ -93,9 +93,7 @@ const ClubDetails = () => {
       <button onClick={() => navigate("/clubs")} className="btn btn-secondary" style={{ marginBottom: "20px" }}>
         ← Back to Clubs
       </button>
-
-      <div className="card">
-        <d{club.name}</h1>
+m
         
           </div>
 
