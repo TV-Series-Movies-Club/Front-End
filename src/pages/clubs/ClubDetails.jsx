@@ -1,13 +1,7 @@
 "use client"
 
 i
-const ClubDetails = () => {
-  const { id } = useParams()
-  const navigate = useNavigate()
-  const { isAuthenticated, user } = useAuth()
-
-  const [club, setClub] = useState(null)
-  const [loading, setLoading] = useState(true)
+ce(true)
   const [error, setError] = useState("")
   const [joinLoading, setJoinLoading] = useState(false)
 
