@@ -97,12 +97,7 @@ m
         
         
           )}
-        </div>
-
-        {error && (
-          <div className="text-error" style={{ marginBottom: "20px" }}>
-            {error}
-          </div>
+        <
         )}
       </div>
 
