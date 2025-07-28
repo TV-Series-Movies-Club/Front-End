@@ -1,10 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { useParams, useNavigate } from "react-router-dom"
-import { clubService } from "../../services/club"
-import { useAuth } from "../../context/AuthContext"
-
+i
 const ClubDetails = () => {
   const { id } = useParams()
   const navigate = useNavigate()
