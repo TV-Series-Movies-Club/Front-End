@@ -3,26 +3,7 @@
 
   }
 
-  useEffect(() => {
-    fetchClub()
-  }, [id])
-
-  const handleJoinClub = async () => {
-    if (!isAuthenticated) {
-      navigate("/login")
-      return
-    }
-
-    setJoinLoading(true)
-    try {
-      await clubService.joinClub(id)
-      fetchClub() // Refresh club data
-    } catch (err) {
-      setError("Failed to join club")
-    } finally {
-      setJoinLoading(false)
-    }
-  }
+  
 
   const handleLeaveClub = async () => {
     setJoinLoading(true)
