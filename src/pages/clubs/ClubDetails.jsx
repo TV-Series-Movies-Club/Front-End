@@ -1,22 +1,7 @@
 "use client"
 
 
-  }
-
-  
-
-  const handleLeaveClub = async () => {
-    setJoinLoading(true)
-    try {
-      await clubService.leaveClub(id)
-      fetchClub() // Refresh club data
-    } catch (err) {
-      setError("Failed to leave club")
-    } finally {
-      setJoinLoading(false)
-    }
-  }
-
+ 
   if (loading) {
     return <div className="loading">Loading club...</div>
   }
