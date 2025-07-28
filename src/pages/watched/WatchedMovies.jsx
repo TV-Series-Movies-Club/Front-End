@@ -47,3 +47,45 @@ const WatchedMovies = () => {
       </div>
 
       {error && <div className="text-error">{error}</div>}
+      {movies.length === 0 ? (
+        <div className="card text-center">
+          <h3>No movies tracked yet</h3>
+          <p>Start building your movie collection!</p>
+          <Link to="/watched/add" className="btn btn-primary">
+            Add Your First Movie
+          </Link>
+        </div>
+      ) : (
+        <div className="grid grid-3">
+          {movies.map((movie) => (
+            <div key={movie.id} className="card">
+              <h3>{movie.title}</h3>
+              <p style={{ color: "#666", marginBottom: "10px" }}>{movie.year && `Year: ${movie.year}`}</p>
+              {movie.genre && <p style={{ color: "#666", marginBottom: "10px" }}>Genre: {movie.genre}</p>}
+              {movie.rating && (
+                <p style={{ marginBottom: "10px" }}>
+                  Your Rating: {"⭐".repeat(movie.rating)} ({movie.rating}/5)
+                </p>
+              )}
+              {movie.notes && <p style={{ marginBottom: "15px", fontStyle: "italic" }}>"{movie.notes}"</p>}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ fontSize: "14px", color: "#666" }}>
+                  Watched: {new Date(movie.watchedAt || movie.createdAt).toLocaleDateString()}
+                </span>
+                <button
+                  onClick={() => handleRemoveMovie(movie.id)}
+                  className="btn btn-danger"
+                  style={{ fontSize: "12px", padding: "5px 10px" }}
+                >
+                  Remove
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+export default WatchedMovies
