@@ -2,28 +2,7 @@
 
 
  
-  if (loading) {
-    return <div className="loading">Loading club...</div>
-  }
-
-  if (error && !club) {
-    return (
-      <div className="card text-center">
-        <h3>Error</h3>
-        <p>{error}</p>
-        <button onClick={() => navigate("/clubs")} className="btn btn-primary">
-          Back to Clubs
-        </button>
-      </div>
-    )
-  }
-
-  if (!club) {
-    return (
-      <div className="card text-center">
-        <h3>Club not found</h3>
-        <button onClick={() => navigate("/clubs")} className="btn btn-primary">
-          Back to Clubs
+ 
         </button>
       </div>
     )
