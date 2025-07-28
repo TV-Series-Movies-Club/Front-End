@@ -97,12 +97,6 @@ m
         
           </div>
 
-          {isAuthenticated && (
-            <div>
-              {isMember ? (
-                <button onClick={handleLeaveClub} className="btn btn-danger" disabled={joinLoading}>
-                  {joinLoading ? "Leaving..." : "Leave Club"}
-                </button>
               ) : (
                 <button onClick={handleJoinClub} className="btn btn-primary" disabled={joinLoading}>
                   {joinLoading ? "Joining..." : "Join Club"}
