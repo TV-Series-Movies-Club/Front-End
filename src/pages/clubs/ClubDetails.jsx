@@ -95,9 +95,7 @@ const ClubDetails = () => {
       </button>
 
       <div className="card">
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "start", marginBottom: "20px" }}>
-          <div>
-            <h1 style={{ marginBottom: "10px" }}>{club.name}</h1>
+        <d{club.name}</h1>
         
           </div>
 
