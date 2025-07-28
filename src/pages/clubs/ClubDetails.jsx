@@ -98,12 +98,7 @@ const ClubDetails = () => {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "start", marginBottom: "20px" }}>
           <div>
             <h1 style={{ marginBottom: "10px" }}>{club.name}</h1>
-            <p style={{ color: "#666", marginBottom: "15px" }}>{club.description}</p>
-            <div style={{ display: "flex", gap: "20px", color: "#666", fontSize: "14px" }}>
-              <span>👥 {club.membersCount || club.members?.length || 0} members</span>
-              {club.genre && <span>🎭 {club.genre}</span>}
-              {club.isPrivate && <span>🔒 Private</span>}
-            </div>
+        
           </div>
 
           {isAuthenticated && (
