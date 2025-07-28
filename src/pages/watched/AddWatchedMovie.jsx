@@ -62,3 +62,88 @@ const AddWatchedMovie = () => {
               required
               disabled={loading}
             />
+             </div>
+
+<div className="grid grid-2">
+  <div className="form-group">
+    <label htmlFor="year">Release Year</label>
+    <input
+      type="number"
+      id="year"
+      name="year"
+      value={formData.year}
+      onChange={handleChange}
+      placeholder="2024"
+      min="1900"
+      max={new Date().getFullYear()}
+      disabled={loading}
+    />
+  </div>
+
+  <div className="form-group">
+    <label htmlFor="genre">Genre</label>
+    <select id="genre" name="genre" value={formData.genre} onChange={handleChange} disabled={loading}>
+      <option value="">Select Genre</option>
+      <option value="action">Action</option>
+      <option value="comedy">Comedy</option>
+      <option value="drama">Drama</option>
+      <option value="horror">Horror</option>
+      <option value="romance">Romance</option>
+      <option value="sci-fi">Sci-Fi</option>
+      <option value="thriller">Thriller</option>
+      <option value="documentary">Documentary</option>
+    </select>
+  </div>
+</div>
+
+<div className="grid grid-2">
+  <div className="form-group">
+    <label htmlFor="rating">Your Rating</label>
+    <select id="rating" name="rating" value={formData.rating} onChange={handleChange} disabled={loading}>
+      <option value="">Rate the movie</option>
+      <option value="1">⭐ 1/5</option>
+      <option value="2">⭐⭐ 2/5</option>
+      <option value="3">⭐⭐⭐ 3/5</option>
+      <option value="4">⭐⭐⭐⭐ 4/5</option>
+      <option value="5">⭐⭐⭐⭐⭐ 5/5</option>
+    </select>
+  </div>
+
+  <div className="form-group">
+    <label htmlFor="watchedAt">Date Watched</label>
+    <input
+      type="date"
+      id="watchedAt"
+      name="watchedAt"
+      value={formData.watchedAt}
+      onChange={handleChange}
+      disabled={loading}
+    />
+  </div>
+</div>
+
+<div className="form-group">
+  <label htmlFor="notes">Notes (Optional)</label>
+  <textarea
+    id="notes"
+    name="notes"
+    value={formData.notes}
+    onChange={handleChange}
+    placeholder="Your thoughts, memorable quotes, or any notes about the movie..."
+    rows="4"
+    disabled={loading}
+  />
+</div>
+
+{error && <div className="text-error">{error}</div>}
+
+<button type="submit" className="btn btn-primary" disabled={loading}>
+  {loading ? "Adding Movie..." : "Add Movie"}
+</button>
+</form>
+</div>
+</div>
+)
+}
+
+export default AddWatchedMovie
