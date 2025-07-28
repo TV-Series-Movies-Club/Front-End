@@ -34,3 +34,62 @@ const AllPosts = () => {
       setRefreshing(false)
     }
   }
+  useEffect(() => {
+    fetchPosts()
+  }, [])
+
+  const handleRetry = () => {
+    fetchPosts()
+  }
+
+  const handleRefresh = () => {
+    fetchPosts(true)
+  }
+
+  if (loading && !refreshing) {
+    return <LoadingSpinner size="large" message="Loading movie posts..." />
+  }
+
+  return (
+    <div style={{ padding: "20px 0" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "30px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+          <h1>Movie Posts</h1>
+          {refreshing && <LoadingSpinner size="small" message="" />}
+        </div>
+        <div style={{ display: "flex", gap: "10px" }}>
+          <button onClick={handleRefresh} className="btn btn-secondary" disabled={refreshing}>
+            {refreshing ? "Refreshing..." : "🔄 Refresh"}
+          </button>
+          {isAuthenticated && (
+            <Link to="/posts/create" className="btn btn-primary">
+              Create New Post
+            </Link>
+          )}
+        </div>
+      </div>
+
+      {error && <ErrorMessage error={error} onRetry={handleRetry} onDismiss={() => setError(null)} />}
+
+      {!error && posts.length === 0 && !loading ? (
+        <div className="card text-center">
+          <h3>No posts yet</h3>
+          <p>Be the first to share your movie thoughts!</p>
+          {isAuthenticated && (
+            <Link to="/posts/create" className="btn btn-primary">
+              Create First Post
+            </Link>
+          )}
+        </div>
+      ) : (
+        <div className="grid grid-2">
+          {posts.map((post) => (
+            <PostCard key={post.id} post={post} />
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+export default AllPosts
