@@ -138,6 +138,4 @@ const ClubDetails = () => {
                 <p style={{ color: "#666", fontSize: "14px", marginTop: "5px" }}>{member.email}</p>
               </div>
             ))}
-          </div>
-        ) : (
-         
+        
