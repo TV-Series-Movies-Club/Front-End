@@ -95,14 +95,7 @@ const ClubDetails = () => {
       </button>
 m
         
-          </div>
-
-              ) : (
-                <button onClick={handleJoinClub} className="btn btn-primary" disabled={joinLoading}>
-                  {joinLoading ? "Joining..." : "Join Club"}
-                </button>
-              )}
-            </div>
+        
           )}
         </div>
 
