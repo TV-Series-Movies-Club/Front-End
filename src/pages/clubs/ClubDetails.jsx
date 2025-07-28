@@ -140,5 +140,4 @@ const ClubDetails = () => {
             ))}
           </div>
         ) : (
-          <p style={{ color: "#666" }}>No members yet</p>
-       
+         
