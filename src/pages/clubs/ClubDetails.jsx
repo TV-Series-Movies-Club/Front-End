@@ -1,19 +1,6 @@
 "use client"
 
-i
-ce(true)
-  const [error, setError] = useState("")
-  const [joinLoading, setJoinLoading] = useState(false)
 
-  const fetchClub = async () => {
-    try {
-      const response = await clubService.getClub(id)
-      setClub(response.club || response)
-    } catch (err) {
-      setError("Failed to load club")
-    } finally {
-      setLoading(false)
-    }
   }
 
   useEffect(() => {
