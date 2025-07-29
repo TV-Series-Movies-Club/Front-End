@@ -11,18 +11,24 @@ export const clubService = {
     return response.data
   },
 
-  createClub: async (clubData) => {
-    const response = await api.post("/clubs/", clubData)
-    return response.data
-  },
+ createClub: async (clubData, token) => {
+  const response = await api.post("/clubs/", clubData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return response.data
+},
 
-  joinClub: async (clubId) => {
-    const response = await api.post(`/clubs/${clubId}/join`)
-    return response.data
-  },
 
-  leaveClub: async (clubId) => {
-    const response = await api.delete(`/clubs/${clubId}/join`)
-    return response.data
-  },
+ joinClub: async (clubId) => {
+  const response = await api.post(`/clubs/join/${clubId}`)
+  return response.data
+},
+
+ leaveClub: async (clubId) => {
+  const response = await api.post(`/clubs/${clubId}/leave`)
+  return response.data
+},
+
 }
