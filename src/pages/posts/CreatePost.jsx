@@ -30,8 +30,16 @@ const CreatePost = () => {
     setLoading(true)
     setError(null)
 
+    const payload = {
+      title: formData.title,
+      review: formData.content, // required by Flask
+      rating: formData.rating ? parseInt(formData.rating) : null,
+      poster_url: null, // optional for now
+      // club_id: null, // optional if using clubs
+    }
+
     try {
-      const response = await postService.createPost(formData)
+      const response = await postService.createPost(payload)
       navigate(`/posts/${response.post?.id || response.id}`)
     } catch (err) {
       setError(err)

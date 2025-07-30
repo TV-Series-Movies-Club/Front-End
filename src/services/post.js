@@ -1,3 +1,5 @@
+// src/services/post.js
+
 import api from "./api"
 
 export const postService = {
