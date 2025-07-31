@@ -4,7 +4,7 @@
 <!-- Overview -->
 Movies Club is a social platform for movie enthusiasts to connect, share reviews, join discussion clubs, and track their movie-watching progress.
 
-<!-- Folder structure -->
+FOLDER STRUCTURE
 
 movies-club/
 ├── node_modules/
