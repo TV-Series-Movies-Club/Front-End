@@ -1,7 +1,6 @@
-<!-- Movies Club - README -->
+MOVIES CLUB - README
 
-
-<!-- Overview -->
+OVERVIEW
 Movies Club is a social platform for movie enthusiasts to connect, share reviews, join discussion clubs, and track their movie-watching progress.
 
 FOLDER STRUCTURE
