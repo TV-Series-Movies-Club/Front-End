@@ -1,12 +1,13 @@
 MOVIES CLUB - README
 
-OVERVIEW
+```OVERVIEW
+```
 
   Movies Club is a social platform for movie enthusiasts to connect, share reviews, join discussion clubs, and track their movie-watching progress.
 
 FOLDER STRUCTURE
 
-  ├── NODE_MODULES/
+ ``` ├── NODE_MODULES/
   ├── PUBLIC/
   │   └── INDEX.HTML
   ├── src/
@@ -64,31 +65,35 @@ FOLDER STRUCTURE
   ├── pnpm-lock.yaml
   ├── README.md
   └── vite.config.js
+```
 
-KEY FEATURES
+```KEY FEATURES
 
   1. Community Discussions: Share reviews and recommendations with fellow movie lovers
   2. Specialized Clubs: Join clubs based on genres, directors, or specific movie interests
   3. User Network: Follow other members and build your film enthusiast community
   4. Watch Tracking: Maintain personal logs of watched movies and watchlists
   5. User Accounts: Secure login and signup system
+```
 
-NAVIGATION 
+```NAVIGATION 
 
  1. Home: Landing page with app introduction
  2. Posts: View and create movie discussions
  3. Clubs: Browse and join movie clubs
  4. Login/Sign Up: User authentication
+```
 
-TECHNOLOGIES USED 
+```TECHNOLOGIES USED 
 
  1. Frontend: React (vite.js)
  2. Backend: Flask
  3. Database: PostgreSQL
  4. Authentication: Firebase Auth
  5. Styling: CSS
+```
 
-INSTALLATION 
+```INSTALLATION 
 
  1. Clone the repository:
 
@@ -101,8 +106,9 @@ INSTALLATION
  3. Start the development server:
 
       <- npm start
+```
 
-USAGE
+```USAGE
 
  1. -New Users: Click "Sign Up" to create an account
     -Existing Users: Click "Login" to access your account
@@ -112,14 +118,17 @@ USAGE
  3. Participate in discussions by creating posts or commenting
 
  4. Track your watched movies in your personal dashboard
+```
 
-LICENSE
-    
+```LICENSE
+
     MIT
+```
 
-CONTRIBUTORS
+```CONTRIBUTORS
 
 1. ELAINE BUYEKE
 2. LEWIS WANYIKA
 3. STACEY JEP 
 4. BILLADAMS
+```
