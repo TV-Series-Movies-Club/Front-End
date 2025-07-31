@@ -65,7 +65,7 @@ movies-club/
 ├── README.md
 └── vite.config.js
 
-<!-- Key Features -->
+KEY FEATURES
 1. Community Discussions: Share reviews and recommendations with fellow movie lovers
 
 2. Specialized Clubs: Join clubs based on genres, directors, or specific movie interests
@@ -76,7 +76,7 @@ movies-club/
 
 5. User Accounts: Secure login and signup system
 
-<!-- Navigation -->
+NAVIGATION 
 1. Home: Landing page with app introduction
 
 2. Posts: View and create movie discussions
@@ -85,7 +85,7 @@ movies-club/
 
 4. Login/Sign Up: User authentication
 
-<!-- Technologies Used -->
+TECHNOLOGIES USED 
 1. Frontend: React (vite.js)
 
 2. Backend: Flask
@@ -96,22 +96,22 @@ movies-club/
 
 5. Styling: CSS
 
-<!-- Installation -->
+INSTALLATION 
 .
 1. Clone the repository:
 
-      <!-- git clone [repository-url] -->
+      <!- git clone (repository) 
 
 2. Install dependencies:
 
-     <!-- npm install -->
+     <!- npm install 
 
 3. Start the development server:
 
-     <!-- npm start -->
+     <!- npm start
 
 
-<!-- USAGE -->
+USAGE
 
 1. New Users: Click "Sign Up" to create an account
 
@@ -123,11 +123,11 @@ movies-club/
 
 4. Track your watched movies in your personal dashboard
 
-<!-- LICENSE -->
+LICENSE
 
     MIT
 
-<!-- CONTRIBUTORS -->
+CONTRIBUTORS
 
 1. Elaine Buyeke - Team leader
 
