@@ -1,13 +1,13 @@
-MOVIES CLUB - README
+# MOVIES CLUB - README
 
-```OVERVIEW
-```
+## OVERVIEW
 
   Movies Club is a social platform for movie enthusiasts to connect, share reviews, join discussion clubs, and track their movie-watching progress.
 
-FOLDER STRUCTURE
+## FOLDER STRUCTURE
 
- ``` ├── NODE_MODULES/
+ ```
+   ├── NODE_MODULES/
   ├── PUBLIC/
   │   └── INDEX.HTML
   ├── src/
@@ -108,8 +108,9 @@ FOLDER STRUCTURE
       <- npm start
 ```
 
-```USAGE
+## USAGE
 
+```
  1. -New Users: Click "Sign Up" to create an account
     -Existing Users: Click "Login" to access your account
 
@@ -120,13 +121,14 @@ FOLDER STRUCTURE
  4. Track your watched movies in your personal dashboard
 ```
 
-```LICENSE
+## LICENSE
 
+```
     MIT
 ```
 
-```CONTRIBUTORS
-
+### CONTRIBUTORS
+```
 1. ELAINE BUYEKE
 2. LEWIS WANYIKA
 3. STACEY JEP 
