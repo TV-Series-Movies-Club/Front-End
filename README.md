@@ -4,6 +4,68 @@
 <!-- Overview -->
 Movies Club is a social platform for movie enthusiasts to connect, share reviews, join discussion clubs, and track their movie-watching progress.
 
+<!-- Folder structure -->
+
+movies-club/
+├── node_modules/
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/
+│   │   ├── ClubCard.jsx
+│   │   ├── CommentBox.jsx
+│   │   ├── ErrorMessage.jsx
+│   │   ├── Footer.jsx
+│   │   ├── LoadingSpinner.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── PostCard.jsx
+│   │   └── ProtectedRoute.jsx
+│   ├── context/
+│   │   └── AuthContext.jsx
+│   ├── hooks/
+│   │   ├── useApiCall.js
+│   │   └── useAuth.js
+│   ├── layouts/
+│   │   └── MainLayout.jsx
+│   ├── pages/
+│   │   ├── auth/
+│   │   │   ├── Login.jsx
+│   │   │   └── Signup.jsx
+│   │   ├── clubs/
+│   │   │   ├── AllClubs.jsx
+│   │   │   ├── ClubDetails.jsx
+│   │   │   └── CreateClub.jsx
+│   │   ├── posts/
+│   │   │   ├── AllPosts.jsx
+│   │   │   ├── CreatePost.jsx
+│   │   │   └── PostDetails.jsx
+│   │   ├── user/
+│   │   │   ├── EditProfile.jsx
+│   │   │   └── Profile.jsx
+│   │   ├── watched/
+│   │   │   ├── AddWatchedMovie.jsx
+│   │   │   └── WatchedMoviesList.jsx
+│   │   └── Home.jsx
+│   ├── routes/
+│   │   └── AppRoutes.jsx
+│   ├── services/
+│   │   ├── api.js
+│   │   ├── auth.js
+│   │   ├── club.js
+│   │   ├── comment.js
+│   │   ├── post.js
+│   │   ├── user.js
+│   │   └── watch.js
+│   ├── App.jsx
+│   ├── index.css
+│   ├── main.jsx
+├── .git/
+├── package.json
+├── package-lock.json
+├── pnpm-lock.yaml
+├── README.md
+└── vite.config.js
+
 <!-- Key Features -->
 1. Community Discussions: Share reviews and recommendations with fellow movie lovers
 
