@@ -87,7 +87,7 @@ movies-club/
 4. Login/Sign Up: User authentication
 
 <!-- Technologies Used -->
-1. Frontend: React 
+1. Frontend: React (vite.js)
 
 2. Backend: Flask
 
@@ -123,3 +123,17 @@ movies-club/
 3. Participate in discussions by creating posts or commenting
 
 4. Track your watched movies in your personal dashboard
+
+<!-- LICENSE -->
+
+    MIT
+
+<!-- CONTRIBUTORS -->
+
+1. Elaine Buyeke - Team leader
+
+2. Lewis Wanyika
+
+3. Stacy Jep
+ 
+4. Billadams
