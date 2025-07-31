@@ -27,7 +27,7 @@ const WatchedMovies = () => {
   const handleRemoveMovie = async (movieId) => {
     try {
       await watchService.removeWatchedMovie(movieId)
-      fetchWatchedMovies() // Refresh the list
+      fetchWatchedMovies()
     } catch (err) {
       setError("Failed to remove movie")
     }
@@ -47,6 +47,7 @@ const WatchedMovies = () => {
       </div>
 
       {error && <div className="text-error">{error}</div>}
+
       {movies.length === 0 ? (
         <div className="card text-center">
           <h3>No movies tracked yet</h3>
@@ -59,18 +60,26 @@ const WatchedMovies = () => {
         <div className="grid grid-3">
           {movies.map((movie) => (
             <div key={movie.id} className="card">
-              <h3>{movie.title}</h3>
-              <p style={{ color: "#666", marginBottom: "10px" }}>{movie.year && `Year: ${movie.year}`}</p>
-              {movie.genre && <p style={{ color: "#666", marginBottom: "10px" }}>Genre: {movie.genre}</p>}
+              <h3>{movie.movie_title}</h3>
+
+              {movie.year && (
+                <p style={{ color: "#666", marginBottom: "5px" }}>Year: {movie.year}</p>
+              )}
+              {movie.genre && (
+                <p style={{ color: "#666", marginBottom: "5px" }}>Genre: {movie.genre}</p>
+              )}
               {movie.rating && (
-                <p style={{ marginBottom: "10px" }}>
-                  Your Rating: {"⭐".repeat(movie.rating)} ({movie.rating}/5)
+                <p style={{ color: "#666", marginBottom: "5px" }}>
+                  Rating: {"⭐".repeat(movie.rating)} ({movie.rating}/5)
                 </p>
               )}
-              {movie.notes && <p style={{ marginBottom: "15px", fontStyle: "italic" }}>"{movie.notes}"</p>}
+              {movie.experience && (
+                <p style={{ fontStyle: "italic", marginBottom: "10px" }}>"{movie.experience}"</p>
+              )}
+
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span style={{ fontSize: "14px", color: "#666" }}>
-                  Watched: {new Date(movie.watchedAt || movie.createdAt).toLocaleDateString()}
+                  Watched: {new Date(movie.watched_on).toLocaleDateString()}
                 </span>
                 <button
                   onClick={() => handleRemoveMovie(movie.id)}

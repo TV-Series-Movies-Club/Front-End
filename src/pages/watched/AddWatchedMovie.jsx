@@ -6,11 +6,11 @@ import { watchService } from "../../services/watch"
 
 const AddWatchedMovie = () => {
   const [formData, setFormData] = useState({
-    title: "",
+    movie_title: "",
     year: "",
     genre: "",
     rating: "",
-    notes: "",
+    experience: "",
     watchedAt: new Date().toISOString().split("T")[0],
   })
   const [loading, setLoading] = useState(false)
@@ -18,10 +18,11 @@ const AddWatchedMovie = () => {
   const navigate = useNavigate()
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
+    const { name, value } = e.target
+    setFormData((prev) => ({
+      ...prev,
+      [name]: name === "rating" ? parseInt(value) || "" : value,
+    }))
   }
 
   const handleSubmit = async (e) => {
@@ -51,99 +52,111 @@ const AddWatchedMovie = () => {
       <div className="card">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="title">Movie Title</label>
+            <label htmlFor="movie_title">Movie Title</label>
             <input
               type="text"
-              id="title"
-              name="title"
-              value={formData.title}
+              id="movie_title"
+              name="movie_title"
+              value={formData.movie_title}
               onChange={handleChange}
               placeholder="Enter movie title"
               required
               disabled={loading}
             />
-             </div>
+          </div>
 
-<div className="grid grid-2">
-  <div className="form-group">
-    <label htmlFor="year">Release Year</label>
-    <input
-      type="number"
-      id="year"
-      name="year"
-      value={formData.year}
-      onChange={handleChange}
-      placeholder="2024"
-      min="1900"
-      max={new Date().getFullYear()}
-      disabled={loading}
-    />
-  </div>
+          <div className="grid grid-2">
+            <div className="form-group">
+              <label htmlFor="year">Release Year</label>
+              <input
+                type="number"
+                id="year"
+                name="year"
+                value={formData.year}
+                onChange={handleChange}
+                placeholder="2024"
+                min="1900"
+                max={new Date().getFullYear()}
+                disabled={loading}
+              />
+            </div>
 
-  <div className="form-group">
-    <label htmlFor="genre">Genre</label>
-    <select id="genre" name="genre" value={formData.genre} onChange={handleChange} disabled={loading}>
-      <option value="">Select Genre</option>
-      <option value="action">Action</option>
-      <option value="comedy">Comedy</option>
-      <option value="drama">Drama</option>
-      <option value="horror">Horror</option>
-      <option value="romance">Romance</option>
-      <option value="sci-fi">Sci-Fi</option>
-      <option value="thriller">Thriller</option>
-      <option value="documentary">Documentary</option>
-    </select>
-  </div>
-</div>
+            <div className="form-group">
+              <label htmlFor="genre">Genre</label>
+              <select
+                id="genre"
+                name="genre"
+                value={formData.genre}
+                onChange={handleChange}
+                disabled={loading}
+              >
+                <option value="">Select Genre</option>
+                <option value="action">Action</option>
+                <option value="comedy">Comedy</option>
+                <option value="drama">Drama</option>
+                <option value="horror">Horror</option>
+                <option value="romance">Romance</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="thriller">Thriller</option>
+                <option value="documentary">Documentary</option>
+              </select>
+            </div>
+          </div>
 
-<div className="grid grid-2">
-  <div className="form-group">
-    <label htmlFor="rating">Your Rating</label>
-    <select id="rating" name="rating" value={formData.rating} onChange={handleChange} disabled={loading}>
-      <option value="">Rate the movie</option>
-      <option value="1">⭐ 1/5</option>
-      <option value="2">⭐⭐ 2/5</option>
-      <option value="3">⭐⭐⭐ 3/5</option>
-      <option value="4">⭐⭐⭐⭐ 4/5</option>
-      <option value="5">⭐⭐⭐⭐⭐ 5/5</option>
-    </select>
-  </div>
+          <div className="grid grid-2">
+            <div className="form-group">
+              <label htmlFor="rating">Your Rating</label>
+              <select
+                id="rating"
+                name="rating"
+                value={formData.rating}
+                onChange={handleChange}
+                disabled={loading}
+              >
+                <option value="">Rate the movie</option>
+                <option value="1">⭐ 1/5</option>
+                <option value="2">⭐⭐ 2/5</option>
+                <option value="3">⭐⭐⭐ 3/5</option>
+                <option value="4">⭐⭐⭐⭐ 4/5</option>
+                <option value="5">⭐⭐⭐⭐⭐ 5/5</option>
+              </select>
+            </div>
 
-  <div className="form-group">
-    <label htmlFor="watchedAt">Date Watched</label>
-    <input
-      type="date"
-      id="watchedAt"
-      name="watchedAt"
-      value={formData.watchedAt}
-      onChange={handleChange}
-      disabled={loading}
-    />
-  </div>
-</div>
+            <div className="form-group">
+              <label htmlFor="watchedAt">Date Watched</label>
+              <input
+                type="date"
+                id="watchedAt"
+                name="watchedAt"
+                value={formData.watchedAt}
+                onChange={handleChange}
+                disabled={loading}
+              />
+            </div>
+          </div>
 
-<div className="form-group">
-  <label htmlFor="notes">Notes (Optional)</label>
-  <textarea
-    id="notes"
-    name="notes"
-    value={formData.notes}
-    onChange={handleChange}
-    placeholder="Your thoughts, memorable quotes, or any notes about the movie..."
-    rows="4"
-    disabled={loading}
-  />
-</div>
+          <div className="form-group">
+            <label htmlFor="experience">Notes (Optional)</label>
+            <textarea
+              id="experience"
+              name="experience"
+              value={formData.experience}
+              onChange={handleChange}
+              placeholder="Your thoughts, memorable quotes, or any notes about the movie..."
+              rows="4"
+              disabled={loading}
+            />
+          </div>
 
-{error && <div className="text-error">{error}</div>}
+          {error && <div className="text-error">{error}</div>}
 
-<button type="submit" className="btn btn-primary" disabled={loading}>
-  {loading ? "Adding Movie..." : "Add Movie"}
-</button>
-</form>
-</div>
-</div>
-)
+          <button type="submit" className="btn btn-primary" disabled={loading}>
+            {loading ? "Adding Movie..." : "Add Movie"}
+          </button>
+        </form>
+      </div>
+    </div>
+  )
 }
 
 export default AddWatchedMovie
