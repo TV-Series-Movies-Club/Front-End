@@ -7,7 +7,7 @@
 ## FOLDER STRUCTURE
 
  ```
-   ├── NODE_MODULES/
+  ├── NODE_MODULES/
   ├── PUBLIC/
   │   └── INDEX.HTML
   ├── src/
@@ -91,6 +91,7 @@
  3. Database: PostgreSQL
  4. Authentication: Firebase Auth
  5. Styling: CSS
+ 6. Vercel: Deployment
 ```
 
 ```INSTALLATION 
