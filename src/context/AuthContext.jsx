@@ -1,6 +1,7 @@
 "use client"
 
 import { createContext, useContext, useState, useEffect } from "react"
+import { userService } from "../services/user"
 
 const AuthContext = createContext()
 
@@ -17,6 +18,7 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(null)
   const [loading, setLoading] = useState(true)
 
+  // Load user from localStorage and refresh latest user info from server
   useEffect(() => {
     const storedToken = localStorage.getItem("token")
     const storedUser = localStorage.getItem("user")
@@ -27,7 +29,16 @@ export const AuthProvider = ({ children }) => {
 
     if (storedUser) {
       try {
-        setUser(JSON.parse(storedUser))
+        const parsedUser = JSON.parse(storedUser)
+        setUser(parsedUser)
+
+        // Refresh the latest profile
+        userService.getProfile().then((freshUser) => {
+          setUser(freshUser)
+          localStorage.setItem("user", JSON.stringify(freshUser))
+        }).catch(err => {
+          console.error("Failed to fetch user profile:", err)
+        })
       } catch (err) {
         console.error("Failed to parse stored user:", err)
         localStorage.removeItem("user")
@@ -51,9 +62,14 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("user")
   }
 
-  const updateUser = (userData) => {
-    setUser(userData)
-    localStorage.setItem("user", JSON.stringify(userData))
+  const updateUser = async () => {
+    try {
+      const updated = await userService.getProfile()
+      setUser(updated)
+      localStorage.setItem("user", JSON.stringify(updated))
+    } catch (err) {
+      console.error("Failed to update user info:", err)
+    }
   }
 
   const value = {

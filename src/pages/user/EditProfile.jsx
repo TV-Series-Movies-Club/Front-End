@@ -13,6 +13,8 @@ const EditProfile = () => {
     name: user?.name || "",
     email: user?.email || "",
     bio: user?.bio || "",
+    profilePicture: null,
+    preview: user?.profile_picture || null,
   })
 
   const [passwordData, setPasswordData] = useState({
@@ -26,10 +28,16 @@ const EditProfile = () => {
   const [success, setSuccess] = useState("")
 
   const handleProfileChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
+    const { name, value, files } = e.target
+    if (name === "profilePicture" && files[0]) {
+      setFormData({
+        ...formData,
+        profilePicture: files[0],
+        preview: URL.createObjectURL(files[0]),
+      })
+    } else {
+      setFormData({ ...formData, [name]: value })
+    }
   }
 
   const handlePasswordChange = (e) => {
@@ -46,7 +54,15 @@ const EditProfile = () => {
     setSuccess("")
 
     try {
-      const response = await userService.updateProfile(formData)
+      const payload = new FormData()
+      payload.append("name", formData.name)
+      payload.append("email", formData.email)
+      payload.append("bio", formData.bio)
+      if (formData.profilePicture) {
+        payload.append("profile_picture", formData.profilePicture)
+      }
+
+      const response = await userService.updateProfile(payload)
       updateUser(response.user)
       setSuccess("Profile updated successfully!")
     } catch (err) {
@@ -137,6 +153,25 @@ const EditProfile = () => {
               />
             </div>
 
+            <div className="form-group">
+              <label htmlFor="profilePicture">Profile Picture</label>
+              <input
+                type="file"
+                id="profilePicture"
+                name="profilePicture"
+                accept="image/*"
+                onChange={handleProfileChange}
+                disabled={loading}
+              />
+              {formData.preview && (
+                <img
+                  src={formData.preview}
+                  alt="Profile Preview"
+                  style={{ width: "100px", height: "100px", marginTop: "10px", objectFit: "cover", borderRadius: "50%" }}
+                />
+              )}
+            </div>
+
             <button type="submit" className="btn btn-primary" disabled={loading}>
               {loading ? "Updating..." : "Update Profile"}
             </button>
@@ -192,18 +227,12 @@ const EditProfile = () => {
         </div>
       </div>
 
-      {error && (
-        <div className="text-error" style={{ marginTop: "20px" }}>
-          {error}
-        </div>
-      )}
-      {success && (
-        <div className="text-success" style={{ marginTop: "20px" }}>
-          {success}
-        </div>
-      )}
+      {error && <div className="text-error" style={{ marginTop: "20px" }}>{error}</div>}
+      {success && <div className="text-success" style={{ marginTop: "20px" }}>{success}</div>}
     </div>
   )
 }
 
 export default EditProfile
+
+

@@ -35,4 +35,9 @@ export const userService = {
     const response = await api.get(`/users/${userId}/following`)
     return response.data
   },
+
+  getWatchedMovies: async (userId) => {
+    const response = await api.get(`/users/${userId}/watched`)
+    return response.data
+  },
 }
