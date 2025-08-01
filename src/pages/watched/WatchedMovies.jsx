@@ -73,13 +73,19 @@ const WatchedMovies = () => {
                   Rating: {"⭐".repeat(movie.rating)} ({movie.rating}/5)
                 </p>
               )}
-              {movie.experience && (
-                <p style={{ fontStyle: "italic", marginBottom: "10px" }}>"{movie.experience}"</p>
+            
+              {movie.notes && (
+                <p style={{ fontSize: "14px", marginBottom: "5px" }}>
+                  Notes: {movie.notes}
+                </p>
               )}
 
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span style={{ fontSize: "14px", color: "#666" }}>
-                  Watched: {new Date(movie.watched_on).toLocaleDateString()}
+                  Watched:{" "}
+                  {movie.watched_on
+                    ? new Date(movie.watched_on).toLocaleDateString()
+                    : "N/A"}
                 </span>
                 <button
                   onClick={() => handleRemoveMovie(movie.id)}

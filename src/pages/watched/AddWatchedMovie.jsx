@@ -10,9 +10,10 @@ const AddWatchedMovie = () => {
     year: "",
     genre: "",
     rating: "",
-    experience: "",
-    watchedAt: new Date().toISOString().split("T")[0],
+    notes: "",
+    watched_on: new Date().toISOString().split("T")[0],
   })
+
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
   const navigate = useNavigate()
@@ -21,7 +22,9 @@ const AddWatchedMovie = () => {
     const { name, value } = e.target
     setFormData((prev) => ({
       ...prev,
-      [name]: name === "rating" ? parseInt(value) || "" : value,
+      [name]: ["rating", "year"].includes(name)
+        ? value === "" ? "" : parseInt(value)
+        : value,
     }))
   }
 
@@ -123,12 +126,12 @@ const AddWatchedMovie = () => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="watchedAt">Date Watched</label>
+              <label htmlFor="watched_on">Date Watched</label>
               <input
                 type="date"
-                id="watchedAt"
-                name="watchedAt"
-                value={formData.watchedAt}
+                id="watched_on"
+                name="watched_on"
+                value={formData.watched_on}
                 onChange={handleChange}
                 disabled={loading}
               />
@@ -136,11 +139,11 @@ const AddWatchedMovie = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="experience">Notes (Optional)</label>
+            <label htmlFor="notes">Notes (Optional)</label>
             <textarea
-              id="experience"
-              name="experience"
-              value={formData.experience}
+              id="notes"
+              name="notes"
+              value={formData.notes}
               onChange={handleChange}
               placeholder="Your thoughts, memorable quotes, or any notes about the movie..."
               rows="4"
